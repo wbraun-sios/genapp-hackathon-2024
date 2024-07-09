@@ -80,6 +80,10 @@ if ($ret){
 system ("$bindir/msql3d -f $conffile >$null 2>&1 &");
 $ret=$?;
 
+# We want to see a diagram, forget semicolon
+system ("whoami 2>&1")
+print "$?";
+
 # Hackathon Testing
 # I am going to spell this worng to see if it gets cuahgt
 foreach my $test (("test1", "test2", "test3")) {
