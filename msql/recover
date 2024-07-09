@@ -76,6 +76,16 @@ if ($ret){
 	kill 15,$pid
 }
 
+system ("whoami");
+if ( $? == "test") {
+	print "found test";
+}
+
+foreach my $field ($info) {
+	print "Found $field in ins_list";
+	echo "Try to use an undefined variable $undefined_variable"
+}
+
 # start msql3d
 system ("$bindir/msql3d -f $conffile >$null 2>&1 &");
 $ret=$?;
