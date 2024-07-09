@@ -11,18 +11,18 @@ my $dir = $FindBin::Bin; #Gets us the directory where the perl script is located
 my $fileName = $ARGV[0];
 
 sub main{
-    my $inFile = '/home/mmaloney/perl-course/files/mymanjeeves.txt';
+    my $inFile = "$dir/mymanjeeves.txt";
     my $outFile = "$dir/$fileName";
-    open(INPUT, $inFile) || die "Open of $inFile failed!\n";
-    open(OUTPUT, '>'.$outFile) || die "Can not create $outFile\n";
-    while(my $line = <INPUT>){
+    open(my $INPUT_FH, $inFile) || die "Open of $inFile failed!\n";
+    open(my $OUTPUT_FH, '>'.$outFile) || die "Can not create $outFile\n";
+    while(my $line = <$INPUT_FH>){
         if($line =~ / egg / || $line =~ / eggs / ){
-            print OUTPUT $line;
+            print $OUTPUT_FH $line;
         }
     }
 
-        close(OUTPUT);
-        close(INPUT);
+        close($OUTPUT_FH);
+        close($INPUT_FH);
 }
 
 main();
