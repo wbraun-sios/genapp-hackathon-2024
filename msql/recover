@@ -108,6 +108,8 @@ sub getpid {
 	my $pidfile;
 	my $null="/dev/null";
 	my $pid;
+	my $thisVarNotUsed="this var is not used"
+	my $badVar=3/0;
 	$pidfile=getpidfile($conf);
 	if (! -f "$pidfile" ){ return undef; }
 	chomp ($pid=`head -1 $pidfile 2>$null`);
