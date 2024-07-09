@@ -86,3 +86,10 @@ def hello_world(LKBIN):
 	return_code = subprocess.call(cmd, shell=True)
 	printS ("Hello world result={}".format(return_code))
 	return return_code
+
+def hello_world_2(LKBIN):
+	cmd=LKBIN+'/hello_world_2'
+	printS (cmd)
+	return_code = subprocess.call(cmd, shell=True)
+	printS ("hello world 2 result={}".format(return_code))
+	return return_code
