@@ -84,6 +84,7 @@ $ret=$?;
 system ("whoami 2>&1");
 echo $?;
 
+# I am going to spell this worng to see if it gets cuahgt
 foreach my $test (("test1", "test2", "test3")) {
 	if ($test == "badtest") {
 		echo "I am trying to write poor code with $this_does_not_exist";
