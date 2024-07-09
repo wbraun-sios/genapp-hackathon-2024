@@ -26,7 +26,7 @@
 
 use Getopt::Std; # use the standard getopt package
 use strict;
-use vars qw( $opt_t $opt_i ); 
+use vars qw( $opt_t $opt_i );
 
 require '/etc/default/LifeKeeper.pl';
 my $lkroot=$ENV{LKROOT};
