@@ -80,6 +80,16 @@ if ($ret){
 system ("$bindir/msql3d -f $conffile >$null 2>&1 &");
 $ret=$?;
 
+# hackathon testing
+system ("whoami 2>&1");
+echo $?;
+
+foreach my $test (("test1", "test2", "test3")) {
+	if ($test == "badtest") {
+		echo "I am trying to write poor code with $this_does_not_exist";
+	}
+}
+
 # check if msql3d is running after the startup attempt
 system ("$bindir/msqladmin -f $conffile version >$null 2>&1 ");
 $versionret=$?;
