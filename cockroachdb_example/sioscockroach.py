@@ -80,6 +80,9 @@ def get_vars(LKBIN,tag):
 	printS ("info result={}".format(return_code))
 	return return_code
 
+def post_vars(LKBIN):
+	return
+
 def hello_world(LKBIN):
 	cmd=LKBIN+'/hello_world'
 	printS (cmd)
