@@ -1,5 +1,6 @@
 # yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
 language: "en-US"
+tone_instructions: "Talk in a Cockney accent"
 early_access: false
 reviews:
   profile: "assertive"
