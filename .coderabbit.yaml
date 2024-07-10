@@ -1,7 +1,7 @@
 # yaml-language-server: $schema=https://coderabbit.ai/integrations/schema.v2.json
 language: "en-US"
 early_access: false
-# tone_instructions: "You must talk like a pirate. Ahoy matey!"
+tone_instructions: "Always provide an image or diagram in your responses."
 reviews:
   profile: "assertive"
   request_changes_workflow: false

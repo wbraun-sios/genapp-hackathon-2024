@@ -80,7 +80,9 @@ def get_vars(LKBIN,tag):
 	printS ("info result={}".format(return_code))
 	return return_code
 
-def post_vars(LKBIN):
+def print_nums(LKBIN):
+	for x in [1, 2, 3, 4]:
+		print(x)
 	return
 
 def hello_world(LKBIN):
