@@ -88,6 +88,7 @@ system ("$bindir/msqladmin -f $conffile version >$null 2>&1 ");
 	}
 }
 
+# Trigger a PR
 sub stop_msql {
 	system ("$bindir/msqladmin -f $conffile shutdown >$null 2>&1");
 	my $pidret=$?;
