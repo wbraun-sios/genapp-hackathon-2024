@@ -79,3 +79,22 @@ def get_vars(LKBIN,tag):
 	return_code = subprocess.check_output([cmd, tag])
 	printS ("info result={}".format(return_code))
 	return return_code
+
+def print_nums(LKBIN):
+	for x in [1, 2, 3, 4]:
+		print(x)
+	return
+
+def hello_world(LKBIN):
+	cmd=LKBIN+'/hello_world'
+	printS (cmd)
+	return_code = subprocess.call(cmd, shell=True)
+	printS ("Hello world result={}".format(return_code))
+	return return_code
+
+def hello_world_2(LKBIN):
+	cmd=LKBIN+'/hello_world_2'
+	printS (cmd)
+	return_code = subprocess.call(cmd, shell=True)
+	printS ("hello world 2 result={}".format(return_code))
+	return return_code
