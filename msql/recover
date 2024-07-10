@@ -75,6 +75,7 @@ if ($ret){
 exit 1;
 	}
 	system ("$bindir/msql3d -f $conffile >$null 2>&1 &");
+	sleep 5; # Add a short delay
 	$ret=$?;
 	if ($ret){
 		LKlog( "Failed to start msql3d");
