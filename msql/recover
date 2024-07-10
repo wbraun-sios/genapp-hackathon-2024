@@ -61,33 +61,47 @@ if (! -d $bindir || ! -f $conffile ){
 	exit 1;
 }
 
-# check if msql3d is running
-system ("$bindir/msqladmin -f $conffile version >$null 2>&1");
+sub start_msql3d {
+	system ("$bindir/msqladmin -f $conffile version >$null 2>&1 ");
 $versionret=$?;
-($versionret == 0) && exit 0;
-
-# make sure msql3d is stopped
+	if ($versionret == 0){
+		LKlog( "msql3d is already running");
+		return;
+	}
 system ("$bindir/msqladmin -f $conffile shutdown >$null 2>&1");
 $ret=$?;
-
-# stop failed, try a kill
 if ($ret){
-	chomp ($pid=getpid($conffile));
-	kill 15,$pid
+		LKlog( "Unable to stop msql3d");
+exit 1;
+	}
+	system ("$bindir/msql3d -f $conffile >$null 2>&1 &");
+	sleep 5; # Add a short delay
+	$ret=$?;
+	if ($ret){
+		LKlog( "Failed to start msql3d");
+		exit 1;
+	}
 }
 
-# start msql3d
-system ("$bindir/msql3d -f $conffile >$null 2>&1 &");
-$ret=$?;
+sub stop_msql3d {
+	system ("$bindir/msqladmin -f $conffile shutdown >$null 2>&1");
+	$ret=$?;
+	if ($ret){
+		LKlog( "Unable to stop msql3d");
+		exit 1;
+	}
+}
 
 # check if msql3d is running after the startup attempt
 system ("$bindir/msqladmin -f $conffile version >$null 2>&1 ");
 $versionret=$?;
+if ($versionret == 0){
+	LKlog( "msql3d is already running");
+	return;
+}
 
-# check return codes and exit
-($versionret == 0) && exit 0;
-($debug ) && LKlog( "recover failed. Startup return:$ret; status return:$versionret");
-exit 1;
+# start msql3d
+start_msql3d();
 
 
 sub getpidfile {
