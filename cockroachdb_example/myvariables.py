@@ -11,4 +11,7 @@ execCmd = execPath+'/'+util
 LKROOT = '/opt/LifeKeeper'
 LKBIN = LKROOT+'/bin'
 flag = '!volatile!_cockroachdb'
-tag = 'cockroacdb-example'
+tag = 'cockroachdb-example'
+# Thse are nwe tgas
+tag2 = 'new-tag2'
+tag3 = 'new-tag3'
